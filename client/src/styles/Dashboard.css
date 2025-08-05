@@ -3,6 +3,8 @@
   padding: 2rem;
   color: #1f1f1f;
   font-family: "Segoe UI", Roboto, sans-serif;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .dashboard-title {
@@ -19,4 +21,23 @@
   padding: 1.5rem;
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.card2 {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.card3 {
+  background-color: #ffffff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  width: 90%;
 }

@@ -1,0 +1,108 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--primary-color); /* Blue background */
+  padding: 1rem 2rem; /* Consistent padding */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  font-family: 'Segoe UI', 'Roboto', sans-serif; /* Clean font */
+}
+
+/* Brand/Logo Link */
+.navbar-brand {
+  color: var(--white); /* White text */
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: rgba(255, 255, 255, 0.8); /* Slightly faded white on hover */
+}
+
+/* Links and Buttons Group */
+.navbar-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Space between items */
+}
+
+/* Individual Navigation Links */
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* User Greeting */
+.user-greeting {
+  color: var(--white);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Buttons within Navbar (reusing button styles from your theme) */
+.nav-button {
+  padding: 0.6rem 1.2rem; /* Slightly smaller padding for navbar buttons */
+  border-radius: 20px; /* Rounded buttons */
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: translateY(-2px); /* Lift effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+/* Logout Button */
+.logout-button {
+  background-color: var(--red-color); /* Red background for logout */
+  color: var(--white);
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .navbar-links {
+    margin-top: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .nav-link,
+  .user-greeting,
+  .nav-button,
+  .logout-button {
+    width: 100%; /* Full width for better touch targets on mobile */
+    text-align: center;
+  }
+}

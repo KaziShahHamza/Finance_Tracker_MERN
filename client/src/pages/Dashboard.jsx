@@ -135,12 +135,12 @@ const Dashboard = () => {
         <p>{summary}</p>
       </div>
 
-      <div className="dashboard-section card">
+      <div className="dashboard-section card2">
         <h3>Add Income/Expense</h3>
         <FinanceForm onAdd={handleAdd} />
       </div>
 
-      <div className="dashboard-section card">
+      <div className="dashboard-section card3">
         <h3>Transactions</h3>
         <FinanceTable
           data={financeData}

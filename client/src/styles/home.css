@@ -1,0 +1,137 @@
+/* Color Palette */
+:root {
+  --bg-color: #f9f9fb;
+  --text-color: #1f1f1f;
+  --primary-color: #0077cc;
+  --green-color: #2ecc71;
+  --red-color: #e74c3c; 
+  --border-color: #ddd;
+  --white: #ffffff;
+}
+
+/* Base styles for the entire page */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Homepage Container */
+.homepage-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height */
+  padding: 2rem; /* Consistent padding around the card */
+  box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+/* Homepage Card Styling */
+.homepage-card {
+  background-color: var(--white);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 2.5rem;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  margin: 1rem; /* Consistent margin for responsiveness */
+}
+
+/* Text Styling */
+.homepage-title {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.homepage-subtitle {
+  font-size: 1.25rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* Feature Sections */
+.feature-section {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.feature-section:first-of-type {
+  border-top: none; /* No top border for the first section */
+}
+
+.feature-section:last-of-type {
+  border-bottom: none; /* No bottom border for the last section */
+}
+
+.section-heading {
+  font-size: 1.75rem;
+  color: var(--text-color);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.section-description {
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Call to Action (CTA) Section */
+.cta-section {
+  margin-top: 2rem;
+}
+
+.cta-text {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Space between buttons */
+}
+
+/* Button Styling (re-used from previous themes) */
+.button {
+  display: inline-block; /* Allows padding and margin to work correctly */
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 25px; /* More rounded */
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--white);
+  text-decoration: none; /* Remove underline from Link */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px); /* Lift effect on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger shadow on hover */
+}
+
+.primary-button {
+  background-color: var(--primary-color);
+}
+.primary-button:hover {
+  background-color: #005a99; /* Darker blue on hover */
+}
+
+.green-button {
+  background-color: var(--green-color);
+}
+.green-button:hover {
+  background-color: #27ae60; /* Darker green on hover */
+}
