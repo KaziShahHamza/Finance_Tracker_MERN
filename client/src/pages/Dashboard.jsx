@@ -5,6 +5,7 @@ import FinanceTable from "../components/FinanceTable";
 const Dashboard = () => {
   const [financeData, setFinanceData] = useState([]);
   // const server = import.meta.env.VITE_SERVER;
+  const [summary, setSummary] = useState("Loading...");
 
   useEffect(() => {
     const fetchFinanceData = async () => {
@@ -31,6 +32,28 @@ const Dashboard = () => {
     fetchFinanceData();
   }, []);
 
+  useEffect(() => {
+    const fetchSummary = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        const res = await fetch("http://localhost:5000/api/summary", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+        setSummary(data.summary);
+      } catch (err) {
+        setSummary("Unable to generate summary");
+        console.error(err);
+      }
+    };
+
+    fetchSummary();
+  }, []);
+
   const handleAdd = async (newData) => {
     try {
       const token = localStorage.getItem("token");
@@ -39,7 +62,7 @@ const Dashboard = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`, // ✅ now it's inside headers
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(newData),
       });
@@ -107,9 +130,9 @@ const Dashboard = () => {
       {/* Gemini Summary */}
       <div>
         <h3>Monthly Summary</h3>
-        <p>[AI-generated summary will appear here]</p>
+        <p>{summary}</p>
       </div>
-
+      
       {/* Finance Form */}
       <div>
         <h3>Add Income/Expense</h3>
