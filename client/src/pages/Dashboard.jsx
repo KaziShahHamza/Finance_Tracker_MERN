@@ -4,10 +4,9 @@ import FinanceTable from "../components/FinanceTable";
 import "../styles/Dashboard.css";
 import "../styles/buttons.css";
 
-
 const Dashboard = () => {
   const [financeData, setFinanceData] = useState([]);
-  // const server = import.meta.env.VITE_SERVER;
+  const server = import.meta.env.VITE_SERVER;
   const [summary, setSummary] = useState("Loading...");
 
   useEffect(() => {
@@ -15,7 +14,7 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch("http://localhost:5000/api/finance", {
+        const res = await fetch(`${server}/api/finance`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -40,7 +39,7 @@ const Dashboard = () => {
       try {
         const token = localStorage.getItem("token");
 
-        const res = await fetch("http://localhost:5000/api/summary", {
+        const res = await fetch(`${server}/api/summary`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -61,7 +60,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:5000/api/finance", {
+      const res = await fetch(`${server}/api/finance`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -80,17 +79,14 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(
-        `http://localhost:5000/api/finance/${updatedItem._id}`,
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(updatedItem),
-        }
-      );
+      const res = await fetch(`${server}/api/finance/${updatedItem._id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(updatedItem),
+      });
 
       if (!res.ok) {
         throw new Error("Failed to update item");
@@ -109,7 +105,7 @@ const Dashboard = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`http://localhost:5000/api/finance/${id}`, {
+      const res = await fetch(`${server}/api/finance/${id}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
