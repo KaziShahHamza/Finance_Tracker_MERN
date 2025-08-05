@@ -49,23 +49,34 @@ const FinanceForm = ({ onAdd }) => {
         onChange={handleChange}
       />
       <select name="type" value={formData.type} onChange={handleChange}>
+        <option value="">Select Type</option>
         <option value="income">Income</option>
         <option value="expense">Expense</option>
       </select>
-      <input
-        type="text"
-        name="category"
-        placeholder="Category"
-        value={formData.category}
-        onChange={handleChange}
-      />
-      <input
-        type="text"
+
+      <select name="category" value={formData.category} onChange={handleChange}>
+        <option value="">Select Category</option>
+        <option value="transport">Transport</option>
+        <option value="entertainment">Entertainment</option>
+        <option value="food">Food</option>
+        <option value="health">Health</option>
+        <option value="education">Education</option>
+        <option value="utilities">Utilities</option>
+        <option value="others">Others</option>
+      </select>
+
+      <select
         name="payment_type"
-        placeholder="Payment Type"
         value={formData.payment_type}
         onChange={handleChange}
-      />
+      >
+        <option value="">Select Payment Type</option>
+        <option value="cash">Cash</option>
+        <option value="card">Card</option>
+        <option value="bank_transfer">Bank Transfer</option>
+        <option value="mobile_payment">Mobile Payment</option>
+      </select>
+
       <input
         type="text"
         name="notes"

@@ -50,6 +50,56 @@ const Dashboard = () => {
     }
   };
 
+  const handleUpdate = async (updatedItem) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch(
+        `http://localhost:5000/api/finance/${updatedItem._id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(updatedItem),
+        }
+      );
+
+      if (!res.ok) {
+        throw new Error("Failed to update item");
+      }
+
+      const updated = await res.json();
+      setFinanceData((prev) =>
+        prev.map((item) => (item._id === updated._id ? updated : item))
+      );
+    } catch (err) {
+      console.error("Failed to update finance entry", err);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      const token = localStorage.getItem("token");
+
+      const res = await fetch(`http://localhost:5000/api/finance/${id}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to delete item");
+      }
+
+      setFinanceData((prev) => prev.filter((item) => item._id !== id));
+    } catch (err) {
+      console.error("Failed to delete finance entry", err);
+    }
+  };
+
   return (
     <div>
       <h2>Dashboard</h2>
@@ -69,7 +119,11 @@ const Dashboard = () => {
       {/* Finance Table */}
       <div>
         <h3>Transactions</h3>
-        <FinanceTable data={financeData} />
+        <FinanceTable
+          data={financeData}
+          onUpdate={handleUpdate}
+          onDelete={handleDelete}
+        />
       </div>
     </div>
   );
