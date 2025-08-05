@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import FinanceForm from "../components/FinanceForm";
 import FinanceTable from "../components/FinanceTable";
+import "../styles/Dashboard.css";
+import "../styles/buttons.css";
+
 
 const Dashboard = () => {
   const [financeData, setFinanceData] = useState([]);
@@ -124,23 +127,20 @@ const Dashboard = () => {
   };
 
   return (
-    <div>
-      <h2>Dashboard</h2>
+    <div className="dashboard">
+      <h2 className="dashboard-title">Dashboard</h2>
 
-      {/* Gemini Summary */}
-      <div>
+      <div className="dashboard-section card">
         <h3>Monthly Summary</h3>
         <p>{summary}</p>
       </div>
-      
-      {/* Finance Form */}
-      <div>
+
+      <div className="dashboard-section card">
         <h3>Add Income/Expense</h3>
         <FinanceForm onAdd={handleAdd} />
       </div>
 
-      {/* Finance Table */}
-      <div>
+      <div className="dashboard-section card">
         <h3>Transactions</h3>
         <FinanceTable
           data={financeData}

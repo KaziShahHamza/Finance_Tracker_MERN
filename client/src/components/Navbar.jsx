@@ -1,11 +1,12 @@
 import { Link } from "react-router";
 import useAuth from "../context/useAuth";
+import "../styles/theme.css";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
 
   return (
-    <nav>
+    <nav className="navbar">
       <Link to="/">Finance Tracker</Link>
       {user ? (
         <>

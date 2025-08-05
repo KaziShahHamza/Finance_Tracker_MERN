@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import useAuth from "../context/useAuth";
+import "../styles/theme.css";
 
 const Signup = () => {
   const { signup } = useAuth();
@@ -19,7 +20,7 @@ const Signup = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -47,7 +48,7 @@ const Signup = () => {
           required
         />
         <button type="submit">Signup</button>
-        {error && <p>{error}</p>}
+        {error && <p className="error">{error}</p>}
       </form>
     </div>
   );

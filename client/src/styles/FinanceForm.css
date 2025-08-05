@@ -1,0 +1,21 @@
+.finance-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+.form-input,
+.form-select {
+  padding: 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fff;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.form-input:focus,
+.form-select:focus {
+  border-color: #0077cc;
+  outline: none;
+}

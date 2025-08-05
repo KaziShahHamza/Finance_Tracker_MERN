@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import "../styles/FinanceForm.css";
+import "../styles/buttons.css";
+
 
 const FinanceForm = ({ onAdd }) => {
   const [formData, setFormData] = useState({
@@ -33,8 +36,9 @@ const FinanceForm = ({ onAdd }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="finance-form" onSubmit={handleSubmit}>
       <input
+        className="form-input"
         type="text"
         name="title"
         placeholder="Title"
@@ -42,19 +46,30 @@ const FinanceForm = ({ onAdd }) => {
         onChange={handleChange}
       />
       <input
+        className="form-input"
         type="number"
         name="amount"
         placeholder="Amount"
         value={formData.amount}
         onChange={handleChange}
       />
-      <select name="type" value={formData.type} onChange={handleChange}>
+      <select
+        className="form-select"
+        name="type"
+        value={formData.type}
+        onChange={handleChange}
+      >
         <option value="">Select Type</option>
         <option value="income">Income</option>
         <option value="expense">Expense</option>
       </select>
 
-      <select name="category" value={formData.category} onChange={handleChange}>
+      <select
+        className="form-select"
+        name="category"
+        value={formData.category}
+        onChange={handleChange}
+      >
         <option value="">Select Category</option>
         <option value="transport">Transport</option>
         <option value="entertainment">Entertainment</option>
@@ -66,6 +81,7 @@ const FinanceForm = ({ onAdd }) => {
       </select>
 
       <select
+        className="form-select"
         name="payment_type"
         value={formData.payment_type}
         onChange={handleChange}
@@ -78,13 +94,17 @@ const FinanceForm = ({ onAdd }) => {
       </select>
 
       <input
+        className="form-input"
         type="text"
         name="notes"
         placeholder="Notes"
         value={formData.notes}
         onChange={handleChange}
       />
-      <button type="submit">Add</button>
+
+      <button className="btn btn-blue" type="submit">
+        Add
+      </button>
     </form>
   );
 };
